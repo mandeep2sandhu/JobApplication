@@ -11,7 +11,9 @@ public class WorkBridgeAssociate {
 
 	public static void main(String[] args) {
 
-		String resumePath="C:\Users\surjit\Desktop\Workspace\JobApplications\resume";
+		String projectPath=System.getProperty("user.dir");
+		 
+		String resumePath=projectPath + "\\resume\\Mandeep Sandhu.docx";
 		String jobLink="http://www.indeed.com/viewjob?jk=15d9070a04533e8b&from=myjobs&tk=1ac2kt40lbdfmfuq";
 		
 		
@@ -43,7 +45,11 @@ public class WorkBridgeAssociate {
 		Browser.findElement(By.id("apply_attach_file")).sendKeys(resumePath);
 		
 		//Submit
-		System.out.println(Browser.findElement(By.xpath("//*[@id='jobpost_send_info']")).getText());
-
+		Browser.findElement(By.xpath("//*[@id='jobpost_send_info']")).click();
+		
+		Browser.switchTo().frame(0);
+        Browser.findElement(By.xpath("//*[@id='recaptcha-anchor']/div[5]")).click();
+        
+        //Captcha- not automated.
 	}
 }
