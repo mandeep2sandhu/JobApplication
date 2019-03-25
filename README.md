@@ -1,2 +1,2 @@
-# MyProjects
+# JobApplication
 Job Applications
